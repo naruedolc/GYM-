@@ -1,0 +1,2749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Real Gym Liabduan — Bangkok's Hardest Gym</title>
+<meta name="description" content="Real Gym Liabduan — Bangkok's premier Hyrox-certified training ground. Open-air, no compromises, all sweat. Liab Duan Road." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300;400;500;600;700;800&family=Bai+Jamjuree:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0d0c0a;
+    --bg-2: #15130f;
+    --bg-3: #1d1a14;
+    --cream: #f0e9dc;
+    --cream-dim: #c9c1b1;
+    --muted: #837a68;
+    --line: #2a261d;
+    --accent: #ff4d1c;
+    --accent-deep: #d83a0d;
+    --accent-soft: #ffb89b;
+    --olive: #8a8064;
+    --gold: #c9a35d;
+
+    --display: "Anton", Impact, sans-serif;
+    --editorial: "Fraunces", "Times New Roman", serif;
+    --body: "Manrope", system-ui, sans-serif;
+    --thai: "Bai Jamjuree", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+
+    --max: 1440px;
+    --gutter: clamp(20px, 4vw, 56px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: var(--body);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Subtle grain overlay across whole site */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { font: inherit; border: 0; background: 0; color: inherit; cursor: pointer; }
+
+  .thai { font-family: var(--thai); letter-spacing: 0; }
+  .mono { font-family: var(--mono); letter-spacing: -0.02em; }
+  .ital { font-family: var(--editorial); font-style: italic; font-weight: 400; }
+
+  .container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ─────────── NAV ─────────── */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    background: rgba(13, 12, 10, 0.7);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 14px var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--display);
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .logo-mark {
+    width: 28px; height: 28px;
+    background: var(--accent);
+    display: grid; place-items: center;
+    border-radius: 4px;
+    font-family: var(--display);
+    font-size: 18px;
+    color: var(--bg);
+    line-height: 1;
+    transform: rotate(-4deg);
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .nav-links a {
+    color: var(--cream-dim);
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .nav-cta:hover { transform: translateY(-1px); background: #ff5a2c; }
+  .nav-toggle { display: none; font-size: 22px; }
+
+  @media (max-width: 880px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .nav-cta { padding: 9px 14px; font-size: 11px; }
+  }
+
+  /* ─────────── HERO ─────────── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 140px var(--gutter) 80px;
+    max-width: var(--max);
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(1100px 700px at 80% 20%, rgba(255, 77, 28, 0.18), transparent 60%),
+      radial-gradient(900px 600px at 10% 90%, rgba(201, 163, 93, 0.08), transparent 70%);
+  }
+  .hero-img {
+    position: absolute;
+    right: -8%;
+    top: 12%;
+    width: 60%;
+    aspect-ratio: 3/4;
+    background:
+      linear-gradient(180deg, rgba(13,12,10,0) 30%, rgba(13,12,10,0.95) 100%),
+      url("https://images.unsplash.com/photo-1739283180408-e64cfd394c5e?fm=jpg&q=70&w=1600&auto=format&fit=crop") center/cover;
+    filter: grayscale(0.2) contrast(1.15) brightness(0.95);
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+    z-index: 0;
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(240, 233, 220, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(240, 233, 220, 0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+
+  .hero-tag {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding: 8px 14px 8px 8px;
+    background: rgba(240, 233, 220, 0.05);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+  }
+  .hero-tag .dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,77,28,0.2);
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  .hero-tag .pill {
+    padding: 4px 10px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(255,77,28,0.25); }
+    50% { box-shadow: 0 0 0 8px rgba(255,77,28,0); }
+  }
+
+  .hero-title {
+    position: relative;
+    z-index: 2;
+    font-family: var(--display);
+    font-size: clamp(64px, 13vw, 220px);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .hero-title .row { display: block; }
+  .hero-title .real { color: var(--cream); }
+  .hero-title .gym {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent);
+    margin-left: 0.6em;
+  }
+  .hero-title .liabduan {
+    font-size: clamp(28px, 5.5vw, 88px);
+    letter-spacing: 0.02em;
+    color: var(--cream-dim);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  .hero-title .liabduan::before {
+    content: "";
+    width: clamp(40px, 6vw, 100px);
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .hero-sub {
+    position: relative; z-index: 2;
+    margin-top: 36px;
+    max-width: 540px;
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.55;
+    color: var(--cream-dim);
+  }
+  .hero-sub strong { color: var(--cream); font-weight: 600; }
+  .hero-sub .ital { color: var(--accent-soft); }
+
+  .hero-cta {
+    position: relative; z-index: 2;
+    margin-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: transform 0.2s, background 0.25s, color 0.25s, border-color 0.25s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .btn-primary:hover { background: #ff5e30; transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid var(--line);
+  }
+  .btn-ghost:hover { border-color: var(--cream); }
+  .btn .arrow { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(0,0,0,0.18); }
+  .btn-ghost .arrow { background: rgba(240,233,220,0.08); }
+
+  .hero-meta {
+    position: relative; z-index: 2;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+    max-width: 880px;
+  }
+  .hero-meta div .num {
+    font-family: var(--display);
+    font-size: clamp(28px, 3.8vw, 48px);
+    line-height: 1;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+  }
+  .hero-meta div .num .accent { color: var(--accent); }
+  .hero-meta div .lbl {
+    margin-top: 8px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .hero { padding-top: 110px; min-height: 88vh; }
+    .hero-img { width: 110%; right: -20%; opacity: 0.35; }
+    .hero-meta { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  }
+
+  /* ─────────── MARQUEE ─────────── */
+  .marquee {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-2);
+    padding: 24px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-flex;
+    gap: 60px;
+    animation: scroll 38s linear infinite;
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 72px);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 60px; }
+  .marquee-track .star { color: var(--accent); font-size: 0.7em; }
+  .marquee-track .out {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--cream);
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ─────────── SECTION FRAME ─────────── */
+  section.block {
+    padding: clamp(80px, 10vw, 140px) var(--gutter);
+    position: relative;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px; height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(40px, 7vw, 110px);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .section-title .ital {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+    color: var(--accent);
+  }
+  .section-lede {
+    max-width: 640px;
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.6;
+    color: var(--cream-dim);
+  }
+
+  /* ─────────── MANIFESTO ─────────── */
+  .manifesto {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+  }
+  .manifesto-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(40px, 8vw, 120px);
+    align-items: start;
+  }
+  .manifesto-text p {
+    font-family: var(--editorial);
+    font-size: clamp(22px, 2.5vw, 36px);
+    line-height: 1.25;
+    font-weight: 300;
+    color: var(--cream);
+  }
+  .manifesto-text p + p { margin-top: 32px; }
+  .manifesto-text .accent { color: var(--accent); font-style: italic; }
+
+  .pillars {
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .pillar {
+    background: var(--bg);
+    padding: 32px 28px;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .pillar:hover { background: var(--bg-2); }
+  .pillar-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    padding-top: 4px;
+  }
+  .pillar h3 {
+    font-family: var(--display);
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+    color: var(--cream);
+  }
+  .pillar p {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--cream-dim);
+  }
+
+  @media (max-width: 880px) {
+    .manifesto-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─────────── CLASSES ─────────── */
+  .classes {
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+  }
+  .classes-head {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 64px;
+  }
+  .hyrox-card {
+    max-width: var(--max);
+    margin: 0 auto 40px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+    border-radius: 8px;
+    padding: clamp(32px, 5vw, 64px);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hyrox-card .hyrox-img {
+    position: absolute;
+    inset: 0;
+    background: url("https://images.unsplash.com/photo-1743993414654-0be2b73a9620?fm=jpg&q=70&w=1800&auto=format&fit=crop") center/cover;
+    mix-blend-mode: multiply;
+    opacity: 0.32;
+    pointer-events: none;
+  }
+  .hyrox-card::before {
+    content: "HYROX";
+    position: absolute;
+    right: -3%;
+    bottom: -22%;
+    font-family: var(--display);
+    font-size: clamp(180px, 28vw, 460px);
+    letter-spacing: -0.02em;
+    color: rgba(13,12,10,0.07);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .hyrox-card .hyrox-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--bg);
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 999px;
+    margin-bottom: 24px;
+    position: relative; z-index: 2;
+  }
+  .hyrox-card h3 {
+    position: relative; z-index: 2;
+    font-family: var(--display);
+    font-size: clamp(40px, 5.5vw, 76px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+  }
+  .hyrox-card p {
+    position: relative; z-index: 2;
+    font-size: 16px;
+    line-height: 1.55;
+    max-width: 520px;
+    color: rgba(13,12,10,0.85);
+  }
+  .hyrox-card .hyrox-stats {
+    position: relative; z-index: 2;
+    display: grid;
+    gap: 18px;
+  }
+  .hyrox-card .hyrox-stats div {
+    border-top: 1px solid rgba(13,12,10,0.18);
+    padding-top: 14px;
+  }
+  .hyrox-card .hyrox-stats .v {
+    font-family: var(--display);
+    font-size: 36px;
+    line-height: 1;
+  }
+  .hyrox-card .hyrox-stats .l {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 6px;
+    color: rgba(13,12,10,0.7);
+  }
+  .hyrox-card .btn-primary {
+    position: relative; z-index: 2;
+    background: var(--bg);
+    color: var(--cream);
+    margin-top: 28px;
+    align-self: start;
+    width: fit-content;
+  }
+  .hyrox-card .btn-primary:hover { background: #1f1c16; }
+
+  .class-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .class-card {
+    background: var(--bg);
+    padding: 32px 28px;
+    transition: background 0.25s;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 240px;
+  }
+  .class-card:hover { background: var(--bg-3); }
+  .class-card .icn {
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    background: rgba(255,77,28,0.12);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+  }
+  .class-card h4 {
+    font-family: var(--display);
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--cream);
+  }
+  .class-card .th {
+    font-family: var(--thai);
+    font-size: 14px;
+    color: var(--cream-dim);
+    margin-top: -10px;
+  }
+  .class-card p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--cream-dim);
+    flex: 1;
+  }
+  .class-card .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    border-top: 1px dashed var(--line);
+    padding-top: 12px;
+  }
+
+  @media (max-width: 880px) {
+    .classes-head { grid-template-columns: 1fr; }
+    .hyrox-card { grid-template-columns: 1fr; }
+    .class-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─────────── THE SPACE ─────────── */
+  .space {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+  }
+  .space-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+  }
+  .img-card {
+    aspect-ratio: 4/5;
+    background: var(--bg-2);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .img-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.15) contrast(1.05);
+    transition: transform 0.6s ease, filter 0.4s;
+  }
+  .img-card:hover img { transform: scale(1.04); filter: grayscale(0) contrast(1.1); }
+  .img-card .cap {
+    position: absolute;
+    left: 16px; bottom: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: rgba(13,12,10,0.7);
+    padding: 6px 10px;
+    border-radius: 4px;
+  }
+  .img-card.tall { aspect-ratio: 3/5; }
+  .img-card.wide { aspect-ratio: 16/9; }
+
+  .span-7 { grid-column: span 7; }
+  .span-5 { grid-column: span 5; }
+  .span-4 { grid-column: span 4; }
+  .span-8 { grid-column: span 8; }
+  .span-6 { grid-column: span 6; }
+  .span-3 { grid-column: span 3; }
+
+  @media (max-width: 880px) {
+    .space-grid { grid-template-columns: repeat(2, 1fr); }
+    .span-7, .span-5, .span-4, .span-8, .span-6, .span-3 { grid-column: span 2; }
+  }
+
+  /* ─────────── REVIEWS ─────────── */
+  .reviews {
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+  }
+  .review-head {
+    max-width: var(--max);
+    margin: 0 auto 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .rating-card {
+    text-align: right;
+    color: var(--cream);
+  }
+  .rating-card .stars {
+    color: var(--accent);
+    font-size: 22px;
+    letter-spacing: 4px;
+    margin-bottom: 6px;
+  }
+  .rating-card .v {
+    font-family: var(--display);
+    font-size: 56px;
+    line-height: 1;
+  }
+  .rating-card .v small {
+    font-size: 22px;
+    color: var(--cream-dim);
+    margin-left: 6px;
+  }
+  .rating-card .lbl {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .review-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .review {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+  }
+  .review .stars { color: var(--accent); letter-spacing: 2px; }
+  .review-quote {
+    font-family: var(--editorial);
+    font-size: 18px;
+    line-height: 1.45;
+    font-weight: 400;
+    color: var(--cream);
+    flex: 1;
+  }
+  .review-quote.thai {
+    font-family: var(--thai);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    display: grid;
+    place-items: center;
+    font-family: var(--display);
+    font-size: 18px;
+    color: var(--bg);
+  }
+  .review-author .name {
+    font-weight: 600;
+    color: var(--cream);
+    font-size: 14px;
+  }
+  .review-author .meta {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .review-author .src {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 880px) {
+    .review-grid { grid-template-columns: 1fr; }
+    .rating-card { text-align: left; }
+  }
+
+  /* ─────────── PRICING ─────────── */
+  .pricing {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+  }
+  .price-grid {
+    max-width: var(--max);
+    margin: 48px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .price {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: transform 0.3s, border-color 0.3s, background 0.3s;
+  }
+  .price:hover {
+    transform: translateY(-4px);
+    border-color: var(--cream-dim);
+  }
+  .price.featured {
+    background: var(--cream);
+    color: var(--bg);
+    border-color: var(--cream);
+    position: relative;
+  }
+  .price.featured::before {
+    content: "MOST CHOSEN";
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  .price h4 {
+    font-family: var(--display);
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .price .th {
+    font-family: var(--thai);
+    font-size: 13px;
+    margin-top: -10px;
+    opacity: 0.7;
+  }
+  .price .amt {
+    font-family: var(--display);
+    font-size: 56px;
+    line-height: 1;
+    color: var(--cream);
+  }
+  .price.featured .amt { color: var(--bg); }
+  .price .amt small {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 6px;
+    opacity: 0.7;
+  }
+  .price ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+  .price li {
+    font-size: 13.5px;
+    line-height: 1.45;
+    padding-left: 22px;
+    position: relative;
+    color: var(--cream-dim);
+  }
+  .price.featured li { color: var(--bg-3); }
+  .price li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .price .price-cta {
+    margin-top: auto;
+    padding: 14px 18px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--cream);
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 999px;
+    transition: background 0.25s, color 0.25s;
+  }
+  .price .price-cta:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+  }
+  .price.featured .price-cta {
+    background: var(--bg);
+    color: var(--cream);
+    border-color: var(--bg);
+  }
+  .price.featured .price-cta:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  @media (max-width: 880px) {
+    .price-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─────────── VISIT ─────────── */
+  .visit {
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+  }
+  .visit-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .visit-info dl {
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 28px;
+  }
+  .visit-info .row {
+    background: var(--bg);
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .visit-info dt {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .visit-info dd {
+    font-size: 15px;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+  .visit-info dd strong { font-weight: 600; }
+  .visit-info dd .ital { color: var(--accent-soft); }
+
+  .map-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    position: relative;
+    background-image:
+      linear-gradient(rgba(240, 233, 220, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(240, 233, 220, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px, 32px 32px;
+    background-color: var(--bg-3);
+  }
+  .map-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .map-pin {
+    position: absolute;
+    left: 52%;
+    top: 48%;
+    transform: translate(-50%, -100%);
+    z-index: 3;
+  }
+  .map-pin .pin-circ {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: grid; place-items: center;
+    box-shadow: 0 8px 24px rgba(255,77,28,0.4);
+  }
+  .map-pin .pin-circ::after {
+    content: "";
+    width: 12px; height: 12px;
+    background: var(--bg);
+    border-radius: 50%;
+  }
+  .map-pin .pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50% 50% 50% 0;
+    background: var(--accent);
+    transform: rotate(-45deg);
+    animation: pinpulse 2s ease-out infinite;
+    opacity: 0;
+  }
+  @keyframes pinpulse {
+    0% { transform: rotate(-45deg) scale(1); opacity: 0.6; }
+    100% { transform: rotate(-45deg) scale(2.4); opacity: 0; }
+  }
+  .map-label {
+    position: absolute;
+    bottom: 24px; left: 24px;
+    background: var(--cream);
+    color: var(--bg);
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-family: var(--display);
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    z-index: 3;
+  }
+  .map-label small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 880px) {
+    .visit-grid { grid-template-columns: 1fr; gap: 40px; }
+    .visit-info .row { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* ─────────── FINAL CTA ─────────── */
+  .final {
+    background: var(--accent);
+    color: var(--bg);
+    padding: clamp(80px, 10vw, 140px) var(--gutter);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final::before, .final::after {
+    content: "REAL";
+    position: absolute;
+    font-family: var(--display);
+    font-size: clamp(140px, 22vw, 360px);
+    color: rgba(13,12,10,0.07);
+    line-height: 0.9;
+    pointer-events: none;
+  }
+  .final::before { top: -8%; left: -2%; }
+  .final::after { bottom: -8%; right: -2%; }
+  .final-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+  .final h2 {
+    font-family: var(--display);
+    font-size: clamp(48px, 8vw, 130px);
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+  .final h2 .ital {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-weight: 300;
+    text-transform: lowercase;
+  }
+  .final p {
+    font-size: clamp(16px, 1.4vw, 20px);
+    max-width: 560px;
+    margin: 0 auto 36px;
+    line-height: 1.55;
+    color: rgba(13,12,10,0.85);
+  }
+  .final .btn {
+    background: var(--bg);
+    color: var(--cream);
+  }
+  .final .btn:hover { background: #1f1c16; }
+  .final .small {
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(13,12,10,0.7);
+  }
+
+  /* ─────────── FOOTER ─────────── */
+  footer {
+    background: var(--bg);
+    color: var(--cream-dim);
+    padding: 80px var(--gutter) 32px;
+    border-top: 1px solid var(--line);
+  }
+  .ftr {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid var(--line);
+  }
+  .ftr h5 {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .ftr ul { list-style: none; display: grid; gap: 10px; }
+  .ftr ul a { color: var(--cream-dim); font-size: 14px; transition: color 0.2s; }
+  .ftr ul a:hover { color: var(--accent); }
+  .ftr-brand p {
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 420px;
+  }
+  .ftr-brand .logo { font-size: 32px; }
+  .copy {
+    max-width: var(--max);
+    margin: 24px auto 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  @media (max-width: 880px) {
+    .ftr { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ─────────── BOOKING MODAL ─────────── */
+  .booking {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    overflow: hidden;
+  }
+  .booking.open { display: block; }
+  .booking-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 7, 6, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .booking-shell {
+    position: relative;
+    max-width: 980px;
+    margin: 24px auto;
+    height: calc(100vh - 48px);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.4s cubic-bezier(.2,.8,.2,1);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  }
+  .booking-head {
+    padding: 18px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-2);
+  }
+  .booking-head .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--display);
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .booking-close {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--bg-3);
+    border: 1px solid var(--line);
+    color: var(--cream);
+    font-size: 18px;
+    cursor: pointer;
+    display: grid; place-items: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .booking-close:hover { background: var(--accent); color: var(--bg); transform: rotate(90deg); }
+
+  .booking-body {
+    overflow-y: auto;
+    flex: 1;
+    padding: 32px 28px 200px;
+    scroll-behavior: smooth;
+  }
+
+  .step {
+    margin-bottom: 48px;
+    padding-top: 8px;
+  }
+  .step-head {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.16em;
+    background: rgba(255,77,28,0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    align-self: center;
+  }
+  .step-head h3 {
+    font-family: var(--display);
+    font-size: clamp(24px, 3vw, 32px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--cream);
+  }
+  .step-head .help {
+    font-size: 13px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+
+  .class-picker {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .class-pick {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.2s, transform 0.15s, background 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+  }
+  .class-pick:hover { border-color: var(--cream-dim); transform: translateY(-2px); }
+  .class-pick.active {
+    border-color: var(--accent);
+    background: rgba(255,77,28,0.08);
+  }
+  .class-pick.active::after {
+    content: "✓";
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 20px; height: 20px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .class-pick .name {
+    font-family: var(--display);
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+  }
+  .class-pick .th {
+    font-family: var(--thai);
+    font-size: 13px;
+    color: var(--cream-dim);
+  }
+  .class-pick .desc {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  .date-strip {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+  }
+  .date-strip::-webkit-scrollbar { height: 4px; }
+  .date-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+
+  .date-pick {
+    flex: 0 0 78px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 8px;
+    cursor: pointer;
+    text-align: center;
+    scroll-snap-align: start;
+    transition: border-color 0.2s, transform 0.15s, background 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .date-pick:hover { border-color: var(--cream-dim); }
+  .date-pick.active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .date-pick.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .date-pick .dow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .date-pick.active .dow { color: rgba(13,12,10,0.7); }
+  .date-pick .day {
+    font-family: var(--display);
+    font-size: 26px;
+    line-height: 1;
+    color: var(--cream);
+  }
+  .date-pick.active .day { color: var(--bg); }
+  .date-pick .month {
+    font-size: 10px;
+    color: var(--cream-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .date-pick.active .month { color: rgba(13,12,10,0.7); }
+
+  .time-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .time-pick {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 8px;
+    cursor: pointer;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .time-pick:hover { border-color: var(--cream-dim); }
+  .time-pick.active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 700;
+  }
+  .time-pick small {
+    display: block;
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: var(--body);
+  }
+  .time-pick.active small { color: rgba(13,12,10,0.7); }
+
+  .empty-state {
+    background: var(--bg-2);
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: 28px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .empty-state strong { color: var(--cream); display: block; margin-bottom: 4px; font-size: 14px; }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .form-grid .full { grid-column: span 2; }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .field label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .field input, .field textarea {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 14px;
+    color: var(--cream);
+    font: inherit;
+    font-size: 15px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .field input:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--bg-3);
+  }
+  .field textarea { resize: vertical; min-height: 70px; }
+
+  .booking-foot {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(13,12,10,0) 0%, var(--bg) 25%);
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .booking-summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    color: var(--cream-dim);
+    font-size: 13px;
+  }
+  .booking-summary .pill {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--cream);
+  }
+  .booking-summary .pill.empty { color: var(--muted); }
+
+  .submit-btn {
+    background: var(--accent);
+    color: var(--bg);
+    padding: 16px 24px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 0;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .submit-btn:hover:not(:disabled) { background: #ff5e30; transform: translateY(-1px); }
+  .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Success screen */
+  .success {
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    padding: 64px 28px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow-y: auto;
+  }
+  .success.show { display: flex; }
+  .success .check {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg);
+    display: grid; place-items: center;
+    font-size: 36px;
+    margin-bottom: 24px;
+    animation: pop 0.5s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+  .success h3 {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 56px);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+    margin-bottom: 14px;
+  }
+  .success .id {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    background: rgba(255,77,28,0.1);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .success .summary-card {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px;
+    max-width: 480px;
+    width: 100%;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+  .success .summary-card .row {
+    display: flex; justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .success .summary-card .row:last-child { border: 0; }
+  .success .summary-card .lbl { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .success .summary-card .val { color: var(--cream); font-weight: 600; }
+
+  .success-cta { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 520px; }
+  .success-cta a, .success-cta button {
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid var(--line);
+    background: var(--bg-2);
+    color: var(--cream);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .success-cta a.line {
+    background: #06c755;
+    color: white;
+    border-color: #06c755;
+  }
+  .success-cta a.line:hover { background: #05a648; }
+  .success-cta a:hover, .success-cta button:hover { border-color: var(--cream-dim); }
+
+  .toast {
+    position: fixed;
+    bottom: 24px; left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--cream);
+    color: var(--bg);
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 720px) {
+    .booking-shell { margin: 0; height: 100vh; border-radius: 0; border: 0; }
+    .class-picker { grid-template-columns: 1fr 1fr; }
+    .time-grid { grid-template-columns: repeat(3, 1fr); }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-grid .full { grid-column: span 1; }
+    .booking-foot { flex-direction: column; align-items: stretch; }
+    .submit-btn { width: 100%; justify-content: center; }
+  }
+
+  /* ─────────── BOOKING TRIGGER STATE ─────────── */
+  body.booking-open { overflow: hidden; }
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- ───── NAV ───── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">R</span>
+      Real Gym <span style="color:var(--accent); margin-left:2px;">/</span> <span style="color:var(--cream-dim); font-size: 14px; letter-spacing:0.12em;">เลียบด่วน</span>
+    </a>
+    <div class="nav-links">
+      <a href="#why">Why Real</a>
+      <a href="#classes">Classes</a>
+      <a href="#hyrox">Hyrox</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#pricing">Membership</a>
+      <a href="#visit">Visit</a>
+    </div>
+    <a href="#trial" class="nav-cta">Free Trial <span>→</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ───── HERO ───── -->
+<header class="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-img"></div>
+  </div>
+
+  <div class="hero-tag reveal">
+    <span class="dot"></span>
+    <span>Open Now · 06:00 — 22:00</span>
+    <span class="pill">Hyrox Certified</span>
+  </div>
+
+  <h1 class="hero-title">
+    <span class="row real reveal">Real</span>
+    <span class="row gym reveal" style="transition-delay:.08s">Gym</span>
+    <span class="row liabduan reveal" style="transition-delay:.16s">Liabduan <span class="thai" style="font-family:var(--thai); color:var(--cream-dim);">เลียบด่วน</span></span>
+  </h1>
+
+  <p class="hero-sub reveal" style="transition-delay:.22s">
+    Bangkok's <strong>hardest training ground</strong> — open-air, equipment-loaded, coach-led.
+    No glass walls, no posing mirrors. Just <span class="ital">work, sweat,</span> and people who finish what they started.
+    <br><br>
+    <span class="thai" style="color: var(--cream-dim);">โรงยิมตัวจริงย่านเลียบด่วน &mdash; เปิดโล่ง อุปกรณ์ครบ โค้ชดูแลทุกคลาส</span>
+  </p>
+
+  <div class="hero-cta reveal" style="transition-delay:.3s">
+    <a href="#trial" class="btn btn-primary">
+      Book Your Free Trial
+      <span class="arrow">→</span>
+    </a>
+    <a href="#hyrox" class="btn btn-ghost">
+      Explore Hyrox
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <div class="hero-meta reveal" style="transition-delay:.36s">
+    <div>
+      <div class="num">200<span class="accent">+</span></div>
+      <div class="lbl">Pieces of Equipment</div>
+    </div>
+    <div>
+      <div class="num">12</div>
+      <div class="lbl">Weekly Class Formats</div>
+    </div>
+    <div>
+      <div class="num">4.9<span class="accent">★</span></div>
+      <div class="lbl">Google Member Rating</div>
+    </div>
+    <div>
+      <div class="num">24/<span class="accent">365</span></div>
+      <div class="lbl">Free Parking On-site</div>
+    </div>
+  </div>
+</header>
+
+<!-- ───── MARQUEE ───── -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span><span class="out">Hyrox</span> <span class="star">✦</span> Strength &amp; Conditioning <span class="star">✦</span> <span class="out">Crossfit-Style</span> <span class="star">✦</span> Boxing <span class="star">✦</span> Open Gym <span class="star">✦</span> Functional <span class="star">✦</span></span>
+    <span><span class="out">Hyrox</span> <span class="star">✦</span> Strength &amp; Conditioning <span class="star">✦</span> <span class="out">Crossfit-Style</span> <span class="star">✦</span> Boxing <span class="star">✦</span> Open Gym <span class="star">✦</span> Functional <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ───── MANIFESTO / WHY REAL ───── -->
+<section class="block manifesto" id="why">
+  <div class="container">
+    <div class="manifesto-grid">
+      <div>
+        <div class="eyebrow reveal">01 — The Manifesto</div>
+        <h2 class="section-title reveal">
+          Why we <span class="ital">refuse</span> to be like every other gym.
+        </h2>
+      </div>
+
+      <div class="manifesto-text">
+        <p class="reveal">We don't sell mirrors. We sell <span class="accent">progress</span>.</p>
+        <p class="reveal" style="transition-delay:.1s">No air-conditioning is the point. Real gyms run hot. Big industrial fans, open-air walls, the kind of training environment that <span class="accent">forges actual athletes</span> — not lobby selfies.</p>
+        <p class="reveal thai" style="transition-delay:.2s; font-family:var(--thai); color:var(--cream-dim); font-size:22px; line-height:1.4;">เราไม่ใช่ยิมที่ขายแอร์ — เราขาย<span style="color:var(--accent);">ผลลัพธ์</span>จริง</p>
+      </div>
+    </div>
+
+    <div class="pillars" style="margin-top: 80px;">
+      <div class="pillar reveal">
+        <div class="pillar-num">[ 01 ]</div>
+        <div>
+          <h3>Open-Air Built</h3>
+          <p>Reviewers keep saying it: "no AC, but cooler than I expected." High ceilings, cross-ventilation, industrial fans. You came here to sweat — we made the room for it.</p>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">[ 02 ]</div>
+        <div>
+          <h3>Hyrox Specialists</h3>
+          <p>Sled push lanes, ski-erg, wall balls, sandbag stations. Coached programming for the world's fastest-growing fitness race — at every level.</p>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">[ 03 ]</div>
+        <div>
+          <h3>Hospitality, Thai-Style</h3>
+          <p>Every member who walked through the door this year mentioned the team. Service mind from the front desk to the platform. Nobody trains alone here.</p>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">[ 04 ]</div>
+        <div>
+          <h3>Fuel On-Site</h3>
+          <p>Cold drinks, real food, whey, recovery snacks — all in-house. Park free, train hard, refuel without leaving the building.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CLASSES + HYROX ───── -->
+<section class="block classes" id="classes">
+  <div class="classes-head container">
+    <div>
+      <div class="eyebrow reveal">02 — Programming</div>
+      <h2 class="section-title reveal">
+        Train with <span class="ital">intention.</span><br>
+        Coached, every rep.
+      </h2>
+    </div>
+    <p class="section-lede reveal">
+      Twelve formats per week. Beginner-welcome to competition-grade. Every session capped at a workable size, every coach pulled from the local Hyrox / functional training scene.
+      <br><br>
+      <span class="thai" style="color:var(--cream-dim);">12 คลาสต่อสัปดาห์ ทุกคลาสมีโค้ชประจำดูแล มือใหม่และนักกีฬาเล่นได้</span>
+    </p>
+  </div>
+
+  <!-- Hyrox feature card -->
+  <div class="hyrox-card reveal" id="hyrox">
+    <div class="hyrox-img"></div>
+    <div>
+      <span class="hyrox-tag">★ Signature Program</span>
+      <h3>Hyrox<br>Performance<br>Lab</h3>
+      <p>Thailand's fastest-growing fitness race lives here. Run + functional stations, programmed weekly, coached live. Whether you're chasing your first event or a national qualifier — this is the room.</p>
+      <a href="#book-hyrox" class="btn btn-primary">
+        Book Hyrox Trial
+        <span class="arrow">→</span>
+      </a>
+    </div>
+    <div class="hyrox-stats">
+      <div>
+        <div class="v">8</div>
+        <div class="l">Functional Stations On-Site</div>
+      </div>
+      <div>
+        <div class="v">4×</div>
+        <div class="l">Hyrox Classes Per Week</div>
+      </div>
+      <div>
+        <div class="v">All</div>
+        <div class="l">Levels Welcome — Open / Pro / Doubles</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Class grid -->
+  <div class="class-grid">
+    <article class="class-card reveal">
+      <div class="icn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h2M20 12h2M6 6v12M18 6v12M9 9h6v6H9z"/></svg>
+      </div>
+      <h4>Strength &amp; Conditioning</h4>
+      <p class="th">เวทเทรนนิ่ง + คาร์ดิโอผสม</p>
+      <p>Periodised lifting paired with engine work. Build raw strength without losing your wind.</p>
+      <div class="meta">60 MIN · DAILY · ALL LEVELS</div>
+    </article>
+    <article class="class-card reveal">
+      <div class="icn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+      </div>
+      <h4>Functional Group</h4>
+      <p class="th">ฟังก์ชันแนล กรุ๊ป</p>
+      <p>Crossfit-flavored programming — METCON, AMRAP, EMOM. Different stimulus every session.</p>
+      <div class="meta">60 MIN · 6×/WK · ALL LEVELS</div>
+    </article>
+    <article class="class-card reveal">
+      <div class="icn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M9 6h9v9"/></svg>
+      </div>
+      <h4>Boxing</h4>
+      <p class="th">มวยไทย / มวยสากล</p>
+      <p>Mitt work, conditioning rounds, and the kind of footwork that builds real coordination.</p>
+      <div class="meta">60 MIN · 4×/WK · OPEN</div>
+    </article>
+    <article class="class-card reveal">
+      <div class="icn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l4-7 5 14 5-14 4 7"/></svg>
+      </div>
+      <h4>Open Gym</h4>
+      <p class="th">เล่นเองอิสระ</p>
+      <p>200+ pieces. No queues for the rack. Train your own program with our coaches floor-side.</p>
+      <div class="meta">UNLIMITED · 06:00 — 22:00</div>
+    </article>
+    <article class="class-card reveal">
+      <div class="icn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>
+      </div>
+      <h4>Mobility &amp; Recovery</h4>
+      <p class="th">มอบิลิตี้ ฟื้นฟูร่างกาย</p>
+      <p>Built specifically to undo the rest of your week. Roll, stretch, breathe, return.</p>
+      <div class="meta">45 MIN · 3×/WK · ALL LEVELS</div>
+    </article>
+    <article class="class-card reveal">
+      <div class="icn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+      </div>
+      <h4>1-on-1 Coaching</h4>
+      <p class="th">เทรนเนอร์ส่วนตัว</p>
+      <p>Custom programming, weekly check-ins, real accountability. Choose from our certified team.</p>
+      <div class="meta">PACKAGES · BOOK DIRECT</div>
+    </article>
+  </div>
+</section>
+
+<!-- ───── THE SPACE ───── -->
+<section class="block space" id="space">
+  <div class="container">
+    <div class="eyebrow reveal">03 — The Space</div>
+    <h2 class="section-title reveal" style="margin-bottom:48px;">
+      Built like a <span class="ital">warehouse,</span><br>
+      run like a <span class="ital">studio.</span>
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="space-grid">
+      <div class="img-card span-7 reveal">
+        <img src="https://images.unsplash.com/photo-1739283180407-21e27d5c0735?fm=jpg&q=70&w=1800&auto=format&fit=crop" alt="Hyrox burpee broad jump competition" loading="lazy">
+        <div class="cap">01 / Race Floor</div>
+      </div>
+      <div class="img-card span-5 reveal" style="transition-delay:.1s">
+        <img src="https://images.unsplash.com/photo-1743993414654-0be2b73a9620?fm=jpg&q=70&w=1400&auto=format&fit=crop" alt="Athletes pushing weighted sleds" loading="lazy">
+        <div class="cap">02 / Sled Push</div>
+      </div>
+      <div class="img-card span-4 reveal" style="transition-delay:.05s">
+        <img src="https://images.unsplash.com/photo-1741562238447-d7c44397f7e0?fm=jpg&q=70&w=1200&auto=format&fit=crop" alt="Runners sprinting indoor race" loading="lazy">
+        <div class="cap">03 / Run Lane</div>
+      </div>
+      <div class="img-card span-4 reveal" style="transition-delay:.15s">
+        <img src="https://images.unsplash.com/photo-1743993414579-9ad1bb84038b?fm=jpg&q=70&w=1200&auto=format&fit=crop" alt="Indoor functional training" loading="lazy">
+        <div class="cap">04 / Training Floor</div>
+      </div>
+      <div class="img-card span-4 reveal" style="transition-delay:.25s">
+        <img src="https://images.unsplash.com/photo-1757147517573-2521839225c8?fm=jpg&q=70&w=1200&auto=format&fit=crop" alt="Hyrox competition event" loading="lazy">
+        <div class="cap">05 / Race Day</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── REVIEWS ───── -->
+<section class="block reviews" id="reviews">
+  <div class="container">
+    <div class="review-head">
+      <div>
+        <div class="eyebrow reveal">04 — Word of mouth</div>
+        <h2 class="section-title reveal">
+          What members<br>actually <span class="ital">say.</span>
+        </h2>
+      </div>
+      <div class="rating-card reveal">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <div class="v">4.9<small>/5</small></div>
+        <div class="lbl">Across 80+ Google Reviews</div>
+      </div>
+    </div>
+
+    <div class="review-grid">
+      <article class="review reveal">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="review-quote">Good equipment, lots of space, not as hot as you think. Service is great. Plenty of parking.</p>
+        <div class="review-author">
+          <div class="avatar">J</div>
+          <div>
+            <div class="name">Jack S.</div>
+            <div class="meta">Local Guide · 42 reviews</div>
+          </div>
+          <span class="src">★ Google</span>
+        </div>
+      </article>
+
+      <article class="review reveal" style="transition-delay:.08s">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="review-quote thai">บรรยากาศดีมาก โค้ชน่ารักตั้งแต่ที่เคาน์เตอร์จนเล่นคลาสจบ อากาศถ่ายเทดี สะอาด คนที่มาเล่นเฟรนลี่มากๆ คลาส Hyrox โค้ชดูแลดีมาก</p>
+        <div class="review-author">
+          <div class="avatar">K</div>
+          <div>
+            <div class="name">kingshawol</div>
+            <div class="meta">5 reviews · 4 photos</div>
+          </div>
+          <span class="src">★ Google</span>
+        </div>
+      </article>
+
+      <article class="review reveal" style="transition-delay:.16s">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="review-quote">First-time trial — every staff member greeted me with a wai. Surprised and impressed. Ready to advise on anything. Cooler inside than I'd guessed.</p>
+        <div class="review-author">
+          <div class="avatar">P</div>
+          <div>
+            <div class="name">PP PKS</div>
+            <div class="meta">Local Guide · 10 reviews</div>
+          </div>
+          <span class="src">★ Google</span>
+        </div>
+      </article>
+
+      <article class="review reveal" style="transition-delay:.05s">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="review-quote thai">พื้นที่กว้างขวาง อากาศถ่ายเทสะดวก อุปกรณ์ครบครัน พนักงานบริการดีมาก โดยรวมโอเคมากค่ะ</p>
+        <div class="review-author">
+          <div class="avatar">S</div>
+          <div>
+            <div class="name">Som Yoay</div>
+            <div class="meta">3 reviews · 15 photos</div>
+          </div>
+          <span class="src">★ Google</span>
+        </div>
+      </article>
+
+      <article class="review reveal" style="transition-delay:.13s">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="review-quote">Spacious, lots of equipment, parking is easy. Classes are an hour, fun and brutal. Staff and trainers really look after you.</p>
+        <div class="review-author">
+          <div class="avatar">P</div>
+          <div>
+            <div class="name">Preeyapa</div>
+            <div class="meta">Local Guide · 34 reviews</div>
+          </div>
+          <span class="src">★ Google</span>
+        </div>
+      </article>
+
+      <article class="review reveal" style="transition-delay:.21s">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="review-quote thai">เพิ่งมาทดลองครั้งแรก พื้นที่กว้าง สะอาด อากาศถ่ายเทดี เครื่องเล่นเยอะครบ จัดสัดส่วนดี จะเป็นสมาชิกแน่นอน</p>
+        <div class="review-author">
+          <div class="avatar">R</div>
+          <div>
+            <div class="name">Ronakorn P.</div>
+            <div class="meta">6 reviews · 16 photos</div>
+          </div>
+          <span class="src">★ Google</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───── PRICING ───── -->
+<section class="block pricing" id="pricing">
+  <div class="container">
+    <div class="eyebrow reveal">05 — Membership</div>
+    <h2 class="section-title reveal">
+      Pick your <span class="ital">commitment.</span>
+    </h2>
+    <p class="section-lede reveal">
+      Honest pricing. No sign-up fee for monthly. Day passes accepted at the front desk — no booking required.
+    </p>
+
+    <div class="price-grid">
+      <div class="price reveal">
+        <h4>Day Pass</h4>
+        <div class="th">รายวัน</div>
+        <div class="amt">฿250<small>/ day</small></div>
+        <ul>
+          <li>Full open-gym access</li>
+          <li>One drop-in class</li>
+          <li>Free parking + locker</li>
+          <li>Walk-in welcome</li>
+        </ul>
+        <a href="#trial" class="price-cta">Walk In Today</a>
+      </div>
+
+      <div class="price featured reveal" style="transition-delay:.08s">
+        <h4>Monthly</h4>
+        <div class="th">รายเดือน</div>
+        <div class="amt">฿1,890<small>/ month</small></div>
+        <ul>
+          <li>Unlimited open gym, 06:00–22:00</li>
+          <li>Unlimited group classes</li>
+          <li>Free Hyrox class access</li>
+          <li>10% off in-house café &amp; whey</li>
+          <li>No commitment, cancel anytime</li>
+        </ul>
+        <a href="#trial" class="price-cta">Start Monthly</a>
+      </div>
+
+      <div class="price reveal" style="transition-delay:.16s">
+        <h4>6-Month</h4>
+        <div class="th">หกเดือน</div>
+        <div class="amt">฿9,900<small>/ 6 mo.</small></div>
+        <ul>
+          <li>Everything in Monthly</li>
+          <li>Save ฿1,440 vs monthly</li>
+          <li>One free PT session</li>
+          <li>Guest day-pass × 2</li>
+        </ul>
+        <a href="#trial" class="price-cta">Lock It In</a>
+      </div>
+
+      <div class="price reveal" style="transition-delay:.24s">
+        <h4>Hyrox Pro</h4>
+        <div class="th">โปรแกรมแข่ง Hyrox</div>
+        <div class="amt">฿3,990<small>/ month</small></div>
+        <ul>
+          <li>All Monthly benefits</li>
+          <li>Weekly Hyrox programming</li>
+          <li>Race-prep coach calls</li>
+          <li>Squad event entry support</li>
+        </ul>
+        <a href="#trial" class="price-cta">Train to Race</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── VISIT ───── -->
+<section class="block visit" id="visit">
+  <div class="container">
+    <div class="visit-grid">
+      <div class="visit-info">
+        <div class="eyebrow reveal">06 — Visit</div>
+        <h2 class="section-title reveal">
+          Find us on<br><span class="ital">Liab Duan.</span>
+        </h2>
+        <p class="section-lede reveal">
+          Tucked off the Liab Duan / Ramintra expressway in Bangkok's east. Free parking, ground-level entry, easy from the highway.
+        </p>
+
+        <dl>
+          <div class="row">
+            <dt>Address</dt>
+            <dd><strong>Real Gym Liabduan</strong><br>Liab Duan Ramintra Road, Bangkok 10230</dd>
+          </div>
+          <div class="row">
+            <dt>Hours</dt>
+            <dd>Mon — Sun · <strong>06:00 — 22:00</strong></dd>
+          </div>
+          <div class="row">
+            <dt>Phone</dt>
+            <dd><a href="tel:+66" class="ital">+66 (0)2 — Call to Book</a></dd>
+          </div>
+          <div class="row">
+            <dt>Line</dt>
+            <dd>@realgym &nbsp;·&nbsp; reply within an hour</dd>
+          </div>
+          <div class="row">
+            <dt>Parking</dt>
+            <dd>Free, on-site, 24h</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="map-card reveal">
+        <svg class="map-svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+          <!-- Stylized roads -->
+          <path d="M-20 180 Q 200 220 420 140" stroke="#3a3528" stroke-width="42" fill="none"/>
+          <path d="M-20 180 Q 200 220 420 140" stroke="#827860" stroke-width="2" stroke-dasharray="8 10" fill="none"/>
+          <path d="M80 -10 L 220 510" stroke="#2a261d" stroke-width="28" fill="none"/>
+          <path d="M80 -10 L 220 510" stroke="#5a523d" stroke-width="1" stroke-dasharray="6 8" fill="none"/>
+          <path d="M-20 360 Q 180 380 420 320" stroke="#2a261d" stroke-width="20" fill="none"/>
+          <!-- Building shapes -->
+          <rect x="40" y="60" width="60" height="50" fill="#1f1c16" stroke="#3a3528"/>
+          <rect x="290" y="80" width="80" height="60" fill="#1f1c16" stroke="#3a3528"/>
+          <rect x="60" y="280" width="50" height="60" fill="#1f1c16" stroke="#3a3528"/>
+          <rect x="300" y="380" width="70" height="50" fill="#1f1c16" stroke="#3a3528"/>
+          <rect x="160" y="420" width="50" height="50" fill="#1f1c16" stroke="#3a3528"/>
+          <!-- Highlighted plot -->
+          <rect x="180" y="200" width="80" height="70" fill="#ff4d1c" opacity="0.15" stroke="#ff4d1c" stroke-width="1.5"/>
+        </svg>
+        <div class="map-pin">
+          <div class="pulse"></div>
+          <div class="pin-circ"></div>
+        </div>
+        <div class="map-label">
+          <small>You are here</small>
+          Real Gym
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FINAL CTA ───── -->
+<section class="final" id="trial">
+  <div class="final-inner">
+    <h2>
+      Stop scrolling.<br>
+      <span class="ital">start sweating.</span>
+    </h2>
+    <p>One free trial day. No card required. Walk into Real Gym Liabduan, train any class, and decide for yourself why our members keep coming back.</p>
+    <a href="#trial" class="btn btn-primary" data-book>
+      Book Your Free Day
+      <span class="arrow">→</span>
+    </a>
+    <div class="small">Open today · 06:00 — 22:00 · Walk-ins welcome</div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="ftr">
+    <div class="ftr-brand">
+      <a href="#" class="logo">
+        <span class="logo-mark">R</span>
+        Real Gym <span style="color:var(--accent); margin-left:2px;">/</span> <span style="color:var(--cream-dim); font-size: 14px; letter-spacing:0.12em;">เลียบด่วน</span>
+      </a>
+      <p>Bangkok's hardest training ground. Open-air, coach-led, Hyrox-certified. Built for people who came to do the work — not look at it.</p>
+    </div>
+
+    <div>
+      <h5>Train</h5>
+      <ul>
+        <li><a href="#classes">All Classes</a></li>
+        <li><a href="#hyrox">Hyrox Program</a></li>
+        <li><a href="#pricing">Membership</a></li>
+        <li><a href="#trial">Free Trial</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>Visit</h5>
+      <ul>
+        <li><a href="#visit">Address</a></li>
+        <li><a href="#visit">Hours</a></li>
+        <li><a href="#visit">Parking</a></li>
+        <li><a href="#visit">Get Directions</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">Line: @realgym</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="copy">
+    <span>© 2026 Real Gym Liabduan · All rights reserved</span>
+    <span>Built for the people who finish what they started.</span>
+  </div>
+</footer>
+
+<script>
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Smooth scroll offset for sticky nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#' || id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+</script>
+
+<!-- ───── BOOKING MODAL ───── -->
+<div class="booking" id="booking" aria-hidden="true" role="dialog">
+  <div class="booking-overlay" data-close></div>
+  <div class="booking-shell">
+    <header class="booking-head">
+      <div class="brand">
+        <span class="logo-mark">R</span>
+        Book a Session
+      </div>
+      <button class="booking-close" data-close aria-label="Close">✕</button>
+    </header>
+
+    <div class="booking-body" id="bookingBody">
+      <!-- Step 1: class -->
+      <div class="step">
+        <div class="step-head">
+          <span class="step-num">01</span>
+          <h3>Choose your class</h3>
+          <span class="help">เลือกคลาส</span>
+        </div>
+        <div class="class-picker" id="classPicker"></div>
+      </div>
+
+      <!-- Step 2: date -->
+      <div class="step">
+        <div class="step-head">
+          <span class="step-num">02</span>
+          <h3>Pick a date</h3>
+          <span class="help">เลือกวัน · 14 วันข้างหน้า</span>
+        </div>
+        <div class="date-strip" id="dateStrip"></div>
+      </div>
+
+      <!-- Step 3: time -->
+      <div class="step">
+        <div class="step-head">
+          <span class="step-num">03</span>
+          <h3>Pick a time</h3>
+          <span class="help">เลือกเวลา</span>
+        </div>
+        <div id="timeWrap">
+          <div class="empty-state">
+            <strong>Select a class &amp; date first</strong>
+            เลือกคลาสและวันก่อนเพื่อดูเวลาที่ว่าง
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: contact -->
+      <div class="step">
+        <div class="step-head">
+          <span class="step-num">04</span>
+          <h3>Your details</h3>
+          <span class="help">ข้อมูลติดต่อ</span>
+        </div>
+        <div class="form-grid">
+          <div class="field">
+            <label for="bk-name">Full Name / ชื่อ-นามสกุล</label>
+            <input type="text" id="bk-name" placeholder="e.g. Somchai Jaidee" required>
+          </div>
+          <div class="field">
+            <label for="bk-phone">Phone / เบอร์โทร</label>
+            <input type="tel" id="bk-phone" placeholder="08x-xxx-xxxx" required>
+          </div>
+          <div class="field">
+            <label for="bk-line">LINE ID (optional)</label>
+            <input type="text" id="bk-line" placeholder="@yourlineid">
+          </div>
+          <div class="field">
+            <label for="bk-experience">Experience Level / ประสบการณ์</label>
+            <select id="bk-experience" style="background:var(--bg-2); border:1px solid var(--line); border-radius:6px; padding:14px; color:var(--cream); font:inherit; font-size:15px;">
+              <option value="beginner">Beginner / เริ่มต้น</option>
+              <option value="intermediate">Intermediate / ปานกลาง</option>
+              <option value="advanced">Advanced / นักกีฬา</option>
+              <option value="hyrox">Hyrox Athlete / นักแข่ง Hyrox</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="bk-notes">Notes (optional) / ข้อความเพิ่มเติม</label>
+            <textarea id="bk-notes" placeholder="Any injuries, goals, or questions? / มีอาการบาดเจ็บ เป้าหมาย หรือคำถาม?"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-foot">
+      <div class="booking-summary" id="summary">
+        <span class="pill empty" id="sum-class">No class selected</span>
+        <span class="pill empty" id="sum-date">No date</span>
+        <span class="pill empty" id="sum-time">No time</span>
+      </div>
+      <button class="submit-btn" id="submitBtn" disabled>
+        Confirm via LINE
+        <span>→</span>
+      </button>
+    </div>
+
+    <!-- Success view -->
+    <div class="success" id="successView">
+      <div class="check">✓</div>
+      <h3>Booking sent.</h3>
+      <p style="color: var(--cream-dim); margin-bottom: 18px; max-width: 480px;">
+        Your booking has been prepared. Send the message to our LINE Official Account and our team will confirm within 1 hour.<br>
+        <span class="thai">เราเตรียมข้อความให้แล้ว — กดปุ่มเพื่อส่งให้ทีมงานทาง LINE จะติดต่อกลับภายใน 1 ชั่วโมง</span>
+      </p>
+      <div class="id" id="bookingId">RG-000000</div>
+
+      <div class="summary-card" id="successSummary"></div>
+
+      <div class="success-cta">
+        <a href="#" class="line" id="lineBtn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.89c.50 0 .91.41.91.92 0 .50-.41.91-.91.91h-2.638v1.638h2.638c.50 0 .91.41.91.918 0 .50-.41.91-.91.91h-3.557c-.50 0-.91-.41-.91-.91V7.273c0-.50.41-.91.91-.91h3.557c.50 0 .91.41.91.91 0 .50-.41.92-.91.92h-2.638v1.697h2.638zM12.65 14.18c0 .50-.41.91-.92.91-.50 0-.91-.41-.91-.91V7.273c0-.50.41-.91.91-.91.51 0 .92.41.92.91v6.91zm-3.43.91c-.50 0-.91-.41-.91-.91V9.6L5.91 13.41c-.18.20-.45.32-.71.32-.50 0-.91-.41-.91-.91V7.273c0-.50.41-.91.91-.91.50 0 .91.41.91.91v4.58l2.40-3.71c.18-.20.46-.32.72-.32.50 0 .91.41.91.91v6.91c0 .50-.41.91-.91.91zm12.78-2.91c0 5.51-4.49 10-10 10S2 17.69 2 12.18C2 6.67 6.49 2.18 12 2.18s10 4.49 10 10z"/></svg>
+          Send via LINE
+        </a>
+        <button id="copyBtn">📋 Copy Details</button>
+        <a href="tel:+66" id="callBtn">📞 Call Gym</a>
+        <button id="resetBtn">+ New Booking</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+  /* ───────── BOOKING SYSTEM ───────── */
+  const SCHEDULE = {
+    trial: {
+      name: "Free Trial Day",
+      th: "ทดลองฟรี",
+      desc: "Walk in any day, try any class. First-timers only.",
+      flex: true,
+      flexSlots: ['07:00','09:00','11:00','14:00','17:00','19:00']
+    },
+    hyrox: {
+      name: "Hyrox",
+      th: "ไฮร็อกซ์",
+      desc: "Race-style functional training. Sled, ski, run.",
+      times: { 1:['18:00'], 3:['18:00'], 5:['18:00'], 6:['09:00','10:30'] }
+    },
+    functional: {
+      name: "Functional",
+      th: "ฟังก์ชันแนล",
+      desc: "Crossfit-flavor METCON. Daily sessions.",
+      times: { 1:['07:00','19:30'], 2:['18:00'], 3:['07:00','19:30'], 4:['18:00'], 5:['07:00','19:30'], 6:['11:00'], 0:['09:00','10:30'] }
+    },
+    strength: {
+      name: "Strength",
+      th: "เวท & คาร์ดิโอ",
+      desc: "Periodised lifting + engine work.",
+      times: { 2:['07:00','19:00'], 4:['07:00','19:00'], 6:['08:00'] }
+    },
+    boxing: {
+      name: "Boxing",
+      th: "มวย",
+      desc: "Mitt work + conditioning rounds.",
+      times: { 1:['20:00'], 3:['20:00'], 5:['20:00'], 0:['11:30'] }
+    },
+    open: {
+      name: "Open Gym",
+      th: "ฟรีเวท",
+      desc: "Train your own program. Coaches floor-side.",
+      flex: true,
+      flexSlots: ['06:00','08:00','10:00','12:00','14:00','16:00','18:00','20:00']
+    }
+  };
+
+  const DOW_SHORT = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  const MONTH_SHORT = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+
+  const state = {
+    class: null,
+    date: null,
+    time: null,
+    name: '',
+    phone: '',
+    line: '',
+    notes: '',
+    experience: 'beginner'
+  };
+
+  // === RENDER CLASS PICKER ===
+  function renderClasses() {
+    const wrap = document.getElementById('classPicker');
+    wrap.innerHTML = '';
+    Object.entries(SCHEDULE).forEach(([key, cls]) => {
+      const btn = document.createElement('button');
+      btn.className = 'class-pick';
+      btn.dataset.key = key;
+      btn.innerHTML = `
+        <span class="name">${cls.name}</span>
+        <span class="th">${cls.th}</span>
+        <span class="desc">${cls.desc}</span>
+      `;
+      btn.addEventListener('click', () => selectClass(key));
+      wrap.appendChild(btn);
+    });
+  }
+
+  // === RENDER DATES ===
+  function renderDates() {
+    const wrap = document.getElementById('dateStrip');
+    wrap.innerHTML = '';
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    for (let i = 0; i < 14; i++) {
+      const d = new Date(today);
+      d.setDate(today.getDate() + i);
+      const dow = d.getDay();
+      const isAvailable = state.class ? hasSlots(state.class, dow) : true;
+      const btn = document.createElement('button');
+      btn.className = 'date-pick' + (isAvailable ? '' : ' disabled');
+      btn.dataset.iso = d.toISOString();
+      btn.innerHTML = `
+        <span class="dow">${DOW_SHORT[dow]}</span>
+        <span class="day">${d.getDate()}</span>
+        <span class="month">${MONTH_SHORT[d.getMonth()]}</span>
+      `;
+      if (isAvailable) {
+        btn.addEventListener('click', () => selectDate(d.toISOString()));
+      }
+      wrap.appendChild(btn);
+    }
+  }
+
+  function hasSlots(classKey, dow) {
+    const cls = SCHEDULE[classKey];
+    if (!cls) return true;
+    if (cls.flex) return true;
+    return cls.times && cls.times[dow] && cls.times[dow].length > 0;
+  }
+
+  function getSlots(classKey, dow) {
+    const cls = SCHEDULE[classKey];
+    if (!cls) return [];
+    if (cls.flex) return cls.flexSlots;
+    return (cls.times && cls.times[dow]) || [];
+  }
+
+  // === RENDER TIMES ===
+  function renderTimes() {
+    const wrap = document.getElementById('timeWrap');
+    if (!state.class || !state.date) {
+      wrap.innerHTML = `<div class="empty-state"><strong>Select a class &amp; date first</strong>เลือกคลาสและวันก่อนเพื่อดูเวลาที่ว่าง</div>`;
+      return;
+    }
+    const dow = new Date(state.date).getDay();
+    const slots = getSlots(state.class, dow);
+    if (!slots.length) {
+      wrap.innerHTML = `<div class="empty-state"><strong>No classes on this day</strong>คลาสนี้ไม่เปิดในวันนี้ ลองเลือกวันอื่น</div>`;
+      return;
+    }
+    const grid = document.createElement('div');
+    grid.className = 'time-grid';
+    slots.forEach(t => {
+      // Mock spots-remaining for realism (deterministic based on date+time)
+      const seed = (state.date.length + t.charCodeAt(0) + t.charCodeAt(3)) % 8;
+      const spots = Math.max(2, 12 - seed);
+      const btn = document.createElement('button');
+      btn.className = 'time-pick';
+      btn.dataset.time = t;
+      btn.innerHTML = `${t}<small>${spots} spots left</small>`;
+      btn.addEventListener('click', () => selectTime(t));
+      grid.appendChild(btn);
+    });
+    wrap.innerHTML = '';
+    wrap.appendChild(grid);
+  }
+
+  // === SELECT HANDLERS ===
+  function selectClass(key) {
+    state.class = key;
+    state.time = null;
+    document.querySelectorAll('.class-pick').forEach(b => b.classList.toggle('active', b.dataset.key === key));
+    renderDates();
+    if (state.date) {
+      const dow = new Date(state.date).getDay();
+      if (!hasSlots(key, dow)) state.date = null;
+    }
+    renderTimes();
+    updateSummary();
+  }
+
+  function selectDate(iso) {
+    state.date = iso;
+    state.time = null;
+    document.querySelectorAll('.date-pick').forEach(b => b.classList.toggle('active', b.dataset.iso === iso));
+    renderTimes();
+    updateSummary();
+  }
+
+  function selectTime(t) {
+    state.time = t;
+    document.querySelectorAll('.time-pick').forEach(b => b.classList.toggle('active', b.dataset.time === t));
+    updateSummary();
+  }
+
+  // === SUMMARY + ENABLE SUBMIT ===
+  function updateSummary() {
+    const cls = state.class ? SCHEDULE[state.class].name : null;
+    const sumClass = document.getElementById('sum-class');
+    const sumDate = document.getElementById('sum-date');
+    const sumTime = document.getElementById('sum-time');
+    sumClass.textContent = cls || 'No class';
+    sumClass.classList.toggle('empty', !cls);
+    if (state.date) {
+      const d = new Date(state.date);
+      sumDate.textContent = `${DOW_SHORT[d.getDay()]} ${d.getDate()} ${MONTH_SHORT[d.getMonth()]}`;
+      sumDate.classList.remove('empty');
+    } else { sumDate.textContent = 'No date'; sumDate.classList.add('empty'); }
+    sumTime.textContent = state.time || 'No time';
+    sumTime.classList.toggle('empty', !state.time);
+
+    const ready = state.class && state.date && state.time;
+    document.getElementById('submitBtn').disabled = !ready;
+  }
+
+  // === SUBMIT ===
+  function submitBooking() {
+    state.name = document.getElementById('bk-name').value.trim();
+    state.phone = document.getElementById('bk-phone').value.trim();
+    state.line = document.getElementById('bk-line').value.trim();
+    state.notes = document.getElementById('bk-notes').value.trim();
+    state.experience = document.getElementById('bk-experience').value;
+
+    if (!state.name || !state.phone) {
+      showToast('Please enter name and phone / กรอกชื่อและเบอร์โทร');
+      document.getElementById('bk-name').focus();
+      return;
+    }
+
+    // Generate booking ID
+    const id = 'RG-' + Date.now().toString(36).toUpperCase().slice(-6);
+    const d = new Date(state.date);
+    const dateLabel = `${DOW_SHORT[d.getDay()]} ${d.getDate()} ${MONTH_SHORT[d.getMonth()]} ${d.getFullYear()}`;
+    const cls = SCHEDULE[state.class].name;
+
+    const booking = {
+      id, class: cls, classTh: SCHEDULE[state.class].th,
+      date: state.date, dateLabel, time: state.time,
+      name: state.name, phone: state.phone, line: state.line,
+      experience: state.experience, notes: state.notes,
+      createdAt: new Date().toISOString()
+    };
+
+    // Persist locally
+    try {
+      const arr = JSON.parse(localStorage.getItem('rg-bookings') || '[]');
+      arr.unshift(booking);
+      localStorage.setItem('rg-bookings', JSON.stringify(arr));
+    } catch(e) { console.warn('localStorage unavailable', e); }
+
+    // Build LINE message
+    const msg = [
+      `🏋️ REAL GYM BOOKING`,
+      `Booking ID: ${id}`,
+      ``,
+      `Class: ${cls} (${SCHEDULE[state.class].th})`,
+      `Date: ${dateLabel}`,
+      `Time: ${state.time}`,
+      ``,
+      `Name: ${state.name}`,
+      `Phone: ${state.phone}`,
+      state.line ? `LINE: ${state.line}` : null,
+      `Experience: ${state.experience}`,
+      state.notes ? `\nNotes: ${state.notes}` : null,
+      ``,
+      `Please confirm my booking. Thank you!`,
+      `กรุณายืนยันการจองด้วยครับ/ค่ะ ขอบคุณครับ`
+    ].filter(Boolean).join('\n');
+
+    // Build success view
+    document.getElementById('bookingId').textContent = id;
+    document.getElementById('successSummary').innerHTML = `
+      <div class="row"><span class="lbl">Class</span><span class="val">${cls}</span></div>
+      <div class="row"><span class="lbl">Date</span><span class="val">${dateLabel}</span></div>
+      <div class="row"><span class="lbl">Time</span><span class="val">${state.time}</span></div>
+      <div class="row"><span class="lbl">Name</span><span class="val">${state.name}</span></div>
+      <div class="row"><span class="lbl">Phone</span><span class="val">${state.phone}</span></div>
+    `;
+
+    // LINE deep link — replace @realgym with the gym's actual LINE OA basic ID
+    // const lineUrl = `https://line.me/R/oaMessage/@realgym/?${encodeURIComponent(msg)}`;
+    // Fallback: open LINE message chooser (works without OA ID)
+    const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(msg)}`;
+    document.getElementById('lineBtn').href = lineUrl;
+
+    // Stash msg for copy button
+    document.getElementById('copyBtn').dataset.msg = msg;
+
+    document.getElementById('successView').classList.add('show');
+    document.getElementById('bookingBody').style.display = 'none';
+    document.querySelector('.booking-foot').style.display = 'none';
+  }
+
+  function resetBooking() {
+    state.class = null; state.date = null; state.time = null;
+    document.getElementById('bk-name').value = '';
+    document.getElementById('bk-phone').value = '';
+    document.getElementById('bk-line').value = '';
+    document.getElementById('bk-notes').value = '';
+    document.querySelectorAll('.class-pick.active, .date-pick.active, .time-pick.active').forEach(b => b.classList.remove('active'));
+    renderDates();
+    renderTimes();
+    updateSummary();
+    document.getElementById('successView').classList.remove('show');
+    document.getElementById('bookingBody').style.display = '';
+    document.querySelector('.booking-foot').style.display = '';
+    document.getElementById('bookingBody').scrollTo(0, 0);
+  }
+
+  // === MODAL CONTROL ===
+  const modal = document.getElementById('booking');
+  function openBooking(prefilledClass) {
+    modal.classList.add('open');
+    document.body.classList.add('booking-open');
+    if (prefilledClass && SCHEDULE[prefilledClass]) selectClass(prefilledClass);
+    if (!document.querySelectorAll('.class-pick').length) {
+      renderClasses();
+      renderDates();
+    }
+  }
+  function closeBooking() {
+    modal.classList.remove('open');
+    document.body.classList.remove('booking-open');
+  }
+  modal.addEventListener('click', e => { if (e.target.dataset.close !== undefined || e.target.closest('[data-close]')) closeBooking(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeBooking(); });
+
+  // === TOAST ===
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // === BIND BUTTONS ===
+  document.getElementById('submitBtn').addEventListener('click', submitBooking);
+  document.getElementById('resetBtn').addEventListener('click', resetBooking);
+  document.getElementById('copyBtn').addEventListener('click', e => {
+    const msg = e.currentTarget.dataset.msg || '';
+    navigator.clipboard.writeText(msg).then(() => showToast('Copied to clipboard ✓'));
+  });
+
+  // === WIRE UP ALL CTAs ===
+  function wireBookingCTAs() {
+    const opts = { capture: true };
+    const intercept = (cls) => (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      openBooking(cls);
+    };
+
+    // Free Trial / final CTA / hero CTA
+    document.querySelectorAll('a[href="#trial"]').forEach(a => {
+      a.addEventListener('click', intercept('trial'), opts);
+    });
+    // Pricing card CTAs (4 tiers in order)
+    const priceMap = ['trial', 'open', 'open', 'hyrox']; // Day, Monthly, 6mo, Hyrox Pro
+    document.querySelectorAll('.price-cta').forEach((a, i) => {
+      a.addEventListener('click', intercept(priceMap[i] || 'trial'), opts);
+    });
+    // Hyrox feature card CTA
+    document.querySelectorAll('.hyrox-card .btn-primary').forEach(a => {
+      a.addEventListener('click', intercept('hyrox'), opts);
+    });
+    // Hero "Explore Hyrox" still scrolls to hyrox card – leave it alone
+    // Nav top-right CTA
+    document.querySelector('.nav-cta')?.addEventListener('click', intercept('trial'), opts);
+  }
+
+  // === IMAGE FALLBACK ===
+  // If any photo fails to load, hide it so the dark card background shows cleanly
+  document.querySelectorAll('.img-card img').forEach(img => {
+    img.addEventListener('error', () => {
+      img.style.display = 'none';
+      const card = img.closest('.img-card');
+      if (card) {
+        card.style.background = 'linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%)';
+        card.style.display = 'flex';
+        card.style.alignItems = 'center';
+        card.style.justifyContent = 'center';
+        const placeholder = document.createElement('div');
+        placeholder.innerHTML = '⛹';
+        placeholder.style.cssText = 'font-size: 64px; opacity: 0.15;';
+        card.appendChild(placeholder);
+      }
+    });
+  });
+
+  // Init
+  renderClasses();
+  renderDates();
+  wireBookingCTAs();
+</script>
+
+</body>
+</html>
